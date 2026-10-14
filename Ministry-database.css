@@ -1,0 +1,280 @@
+/* -------------------------------------------------------------
+   RESET & SYSTEM BASE
+------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden; /* Strict zero-scroll viewport lock */
+  background-color: #ffffff;
+  color: #111111;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Classical Roman capitals for official headings and seal */
+.main-title,
+.seal-typography,
+.cat-link,
+.node-label {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.28em;
+}
+
+/* -------------------------------------------------------------
+   TOP RIGHT EMBLEM & DEPARTMENT INSIGNIA
+------------------------------------------------------------- */
+.header-seal {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 2.3rem 0 0;
+}
+
+.seal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 90px;
+}
+
+.mod-emblem {
+  width: 82px;
+  height: 82px;
+  display: block;
+}
+
+.seal-typography {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+}
+
+.seal-line {
+  font-size: 0.58rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  white-space: nowrap;
+  letter-spacing: 0.12em;
+}
+
+.seal-line.bold {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+/* -------------------------------------------------------------
+   OPTICALLY ELEVATED CORE STAGE
+------------------------------------------------------------- */
+.core-stage {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Shifts visual weight up ~8% above geometric center for correct optical hierarchy */
+  transform: translateY(-4.5rem);
+}
+
+/* Authoritative spaced title */
+.main-title {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em; /* Offsets trailing letter-spacing to ensure absolute center */
+  color: #050505;
+  margin-bottom: 2.25rem;
+  text-transform: uppercase;
+  transform: translateY(-2.5rem);
+}
+
+/* -------------------------------------------------------------
+   MINIMALIST ARCHIVAL SEARCHBAR
+------------------------------------------------------------- */
+.search-module {
+  width: 100%;
+  max-width: 580px;
+  margin-bottom: 3.25rem;
+}
+
+.input-shell {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  background-color: #ffffff;
+  border: 1px solid #d4d4d8;
+  border-radius: 9999px; /* Refined pill form factor */
+  padding: 0 1.25rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-shell:hover {
+  border-color: #a1a1aa;
+}
+
+.input-shell:focus-within {
+  border-color: #18181b;
+  box-shadow: 0 0 0 1px #18181b, 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.folder-glyph {
+  width: 20px;
+  height: 20px;
+  stroke: #71717a;
+  margin-right: 0.9rem;
+  flex-shrink: 0;
+  transition: stroke 0.2s ease;
+}
+
+.input-shell:focus-within .folder-glyph {
+  stroke: #18181b;
+}
+
+#query-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #111111;
+  letter-spacing: 0.02em;
+}
+
+#query-input::placeholder {
+  color: #a1a1aa;
+  font-weight: 300;
+}
+
+/* -------------------------------------------------------------
+   FOUR CATEGORY LINKS
+------------------------------------------------------------- */
+.category-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+
+.cat-link {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: #52525b;
+  position: relative;
+  padding: 0.35rem 0.2rem;
+  transition: color 0.18s ease;
+}
+
+/* -------------------------------------------------------------
+   REFINED BOTTOM LIGHT BLUE TRIM & HARDWARE LED
+------------------------------------------------------------- */
+.bottom-trim {
+  width: 100%;
+  height: 30px;
+  background-color: #eaf3f8; /* Soft, clinical ice-blue tint */
+  border-top: 1px solid #d2e4f0;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.telemetry-node {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.node-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #2c4251;
+}
+
+/* Recessed metal/chassis bezel ring */
+.led-bezel {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #c3d9e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0.5px 1px rgba(0, 0, 0, 0.25), 0 0.5px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Diode core with realistic glow & lens reflection */
+.led-core {
+  width: 5.5px;
+  height: 5.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #38bdf8 45%, #0284c7 100%);
+  box-shadow: 0 0 4px #0ea5e9, 0 0 8px rgba(14, 165, 233, 0.6);
+  animation: signal-beacon 4.8s infinite ease-in-out;
+}
+
+/* Rhythmic pulse suggesting an active interstellar carrier frequency */
+@keyframes signal-beacon {
+  0%, 100% {
+    opacity: 0.25;
+    box-shadow: 0 0 1px rgba(14, 165, 233, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 5px #38bdf8, 0 0 10px rgba(56, 189, 248, 0.85);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .header-seal {
+    padding: 1.5rem 1.5rem 0 0;
+  }
+  .main-title {
+    font-size: 1.35rem;
+    letter-spacing: 0.25em;
+    text-indent: 0.25em;
+  }
+  .category-row {
+    gap: 1.5rem;
+  }
+  .cat-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+  }
+}
